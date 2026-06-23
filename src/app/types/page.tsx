@@ -16,7 +16,7 @@ export default function TypesPage() {
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-orange-100/50">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="text-stone-400 hover:text-orange-500 transition text-sm font-medium">← 首页</Link>
-          <span className="font-mono font-black text-orange-500 text-sm">CBTI</span>
+          <span className="font-mono font-black text-orange-500 text-sm">PBTI</span>
           <Link href="/test" className="text-sm text-orange-500 font-bold hover:underline underline-offset-4">去测试 →</Link>
         </div>
       </header>
@@ -27,13 +27,13 @@ export default function TypesPage() {
         <p className="text-center text-stone-400 mb-10 text-sm">27 种普通人格 + 1 种隐藏人格，点击查看详情</p>
 
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-2.5 mb-8">
-          {allTypes.map((p, i) => (
+          {allTypes.map((p) => (
             <button key={p.code} onClick={() => setSelected(selected === p.code ? null : p.code)}
               className={`bg-white rounded-xl p-3 card-hover text-center border-2 transition-all ${selected === p.code ? "border-orange-400 shadow-lg shadow-orange-100" : "border-transparent"}`}>
               <CharacterSVG type={p.code} size={50} className="mx-auto mb-1" />
               <div className="font-mono text-[10px] font-black" style={{ color: p.color }}>{p.code}</div>
               <div className="font-bold text-[10px] text-stone-600 truncate">{p.name}</div>
-              {p.code === "JAVA" && <span className="inline-block text-[8px] bg-amber-100 text-amber-600 px-1.5 py-0.5 rounded mt-0.5 font-black">隐藏</span>}
+              {p.code === "☕ PM Running" && <span className="inline-block text-[8px] bg-amber-100 text-amber-600 px-1.5 py-0.5 rounded mt-0.5 font-black">隐藏</span>}
             </button>
           ))}
         </div>

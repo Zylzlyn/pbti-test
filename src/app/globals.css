@@ -63,23 +63,19 @@ body {
 
 .option-btn {
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  border: 2px solid #fed7aa;
+  border: 2px solid #DAE2F0;
   background: white;
 }
 .option-btn:hover {
-  border-color: #f97316;
-  background: #fff7ed;
+  border-color: #92A8D1;
+  background: #F5F7FA;
   transform: translateX(6px);
-  box-shadow: -4px 0 0 0 #f97316;
+  box-shadow: -4px 0 0 0 #92A8D1;
 }
 .option-btn.selected {
-  border-color: #f97316;
-  background: #fff7ed;
-  box-shadow: -4px 0 0 0 #f97316, 0 4px 16px rgba(249, 115, 22, 0.15);
-}
-
-.radar-chart {
-  filter: drop-shadow(0 4px 16px rgba(249, 115, 22, 0.12));
+  border-color: #92A8D1;
+  background: #F0F4FA;
+  box-shadow: -4px 0 0 0 #92A8D1, 0 4px 16px rgba(146, 168, 209, 0.15);
 }
 
 @keyframes float {
@@ -93,7 +89,7 @@ body {
 }
 
 .share-card {
-  background: linear-gradient(135deg, #f97316, #ea580c, #dc2626);
+  background: linear-gradient(135deg, #92A8D1, #B8C9E8, #F7CAC9);
 }
 
 @keyframes shimmer {
@@ -108,6 +104,61 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 3s linear infinite;
+}
+
+@keyframes flow-gradient {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.flow-gradient-text {
+  background: linear-gradient(90deg,
+    #92A8D1 0%,
+    #B8C9E8 15%,
+    #F7CAC9 30%,
+    #E88B92 45%,
+    #F7CAC9 55%,
+    #C5D4E8 70%,
+    #92A8D1 85%,
+    #B8C9E8 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: flow-gradient 3s linear infinite;
+}
+
+@keyframes flow-gradient-bar {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.flow-gradient-bar {
+  background: linear-gradient(90deg,
+    #92A8D1 0%,
+    #B8C9E8 20%,
+    #F7CAC9 40%,
+    #E88B92 55%,
+    #F7CAC9 65%,
+    #C5D4E8 80%,
+    #92A8D1 100%
+  );
+  background-size: 300% auto;
+  animation: flow-gradient-bar 3s linear infinite;
+}
+
+.radar-chart {
+  filter: drop-shadow(0 4px 16px rgba(146, 168, 209, 0.12));
+}
+
+@keyframes pulse-glow-blue {
+  0%, 100% { box-shadow: 0 0 20px rgba(146, 168, 209, 0.35), 0 0 40px rgba(146, 168, 209, 0.12); }
+  50% { box-shadow: 0 0 36px rgba(146, 168, 209, 0.55), 0 0 60px rgba(247, 202, 201, 0.25); }
+}
+
+.pulse-glow-blue {
+  animation: pulse-glow-blue 2s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {

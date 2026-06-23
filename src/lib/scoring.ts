@@ -53,7 +53,7 @@ export function calculateResult(
     };
   }
 
-  const userVector = dims.map((d) => d.levelNum);
+  const userVector = dims.map((d) => (d.raw - 2) / 2);
 
   const ranked = personalities.map((p) => {
     let distance = 0;
@@ -61,7 +61,7 @@ export function calculateResult(
     for (let i = 0; i < 15; i++) {
       const diff = Math.abs(userVector[i] - p.vector[i]);
       distance += diff;
-      if (diff === 0) exact++;
+      if (diff < 0.01) exact++;
     }
     const similarity = Math.max(0, Math.round((1 - distance / 30) * 100));
     return { personality: p, distance, exact, similarity };

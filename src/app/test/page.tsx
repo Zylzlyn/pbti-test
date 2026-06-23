@@ -46,23 +46,23 @@ export default function TestPage() {
   };
 
   const finish = (hidden: { drink?: string; drinkAttitude?: string }) => {
-    sessionStorage.setItem("cbti_data", JSON.stringify({ answers: answersRef.current, hidden }));
+    sessionStorage.setItem("pbti_data", JSON.stringify({ answers: answersRef.current, hidden }));
     router.push("/result");
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#fffbf5] to-[#fff7ed] flex flex-col">
+    <main className="min-h-screen bg-[#F7CAC9] flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-orange-100/50">
+      <header className="sticky top-0 z-50 bg-[#92A8D1] border-b border-[#7B9BC8]/30">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
-          <button onClick={() => router.push("/")} className="text-stone-400 hover:text-orange-500 transition text-sm font-medium">← 首页</button>
-          <span className="font-mono font-black text-orange-500 text-sm">
+          <button onClick={() => router.push("/")} className="text-white/70 hover:text-white transition text-sm font-medium">← 首页</button>
+          <span className={`font-mono font-black text-sm ${phase === "main" ? "flow-gradient-text" : "text-white"}`}>
             {phase === "main" ? `${currentIndex + 1} / ${total}` : "BONUS"}
           </span>
-          <span className="text-[11px] text-stone-400 font-mono">{answered} 已答</span>
+          <span className="text-[11px] text-white/60 font-mono">{answered} 已答</span>
         </div>
-        <div className="h-1 bg-orange-100">
-          <div className="h-full bg-gradient-to-r from-orange-400 to-amber-400 progress-bar rounded-r-full" style={{ width: `${phase === "main" ? progress : 100}%` }} />
+        <div className="h-1 bg-[#B8C9E8]/40">
+          <div className="h-full bg-gradient-to-r from-[#92A8D1] to-[#F7CAC9] progress-bar rounded-r-full" style={{ width: `${phase === "main" ? progress : 100}%` }} />
         </div>
       </header>
 
@@ -73,8 +73,8 @@ export default function TestPage() {
           {phase === "main" && currentQ && (
             <div key={currentQ.id}>
               <div className="flex items-center gap-2 mb-4">
-                <span className="bg-orange-500 text-white text-xs font-black px-3 py-1 rounded-lg">Q{currentQ.id}</span>
-                <span className="text-[11px] text-stone-400 font-mono">{currentQ.dimension}</span>
+                <span className="bg-[#92A8D1] text-white text-xs font-black px-3 py-1 rounded-lg">Q{currentQ.id}</span>
+                <span className="text-[11px] text-stone-500 font-mono">{currentQ.dimension}</span>
               </div>
 
               <h2 className="text-lg md:text-xl font-bold mb-6 leading-relaxed text-stone-800">{currentQ.text}</h2>
@@ -87,7 +87,7 @@ export default function TestPage() {
                       className={`option-btn w-full text-left p-3.5 rounded-2xl ${active ? "selected" : ""}`}>
                       <div className="flex items-start gap-3">
                         <span className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-black mt-0.5 transition-colors ${
-                          active ? "bg-orange-500 text-white" : "bg-orange-100 text-orange-400"
+                          active ? "bg-[#92A8D1] text-white" : "bg-[#DAE2F0] text-[#92A8D1]"
                         }`}>{String.fromCharCode(65 + idx)}</span>
                         <span className="text-sm text-stone-700 leading-relaxed">{opt.label}</span>
                       </div>
@@ -100,15 +100,15 @@ export default function TestPage() {
               <div className="flex justify-between mt-6 items-center">
                 <button onClick={() => currentIndex > 0 && setCurrentIndex(currentIndex - 1)}
                   disabled={currentIndex === 0}
-                  className="text-xs text-stone-400 hover:text-orange-500 disabled:opacity-20 transition font-medium">← 上一题</button>
+                  className="text-xs text-stone-400 hover:text-[#92A8D1] disabled:opacity-20 transition font-medium">← 上一题</button>
                 {answers[currentQ.id] != null && currentIndex < questions.length - 1 && (
                   <button onClick={() => setCurrentIndex(currentIndex + 1)}
-                    className="text-xs text-orange-500 hover:text-orange-600 transition font-medium">下一题 →</button>
+                    className="text-xs text-[#92A8D1] hover:text-[#7B9BC8] transition font-medium">下一题 →</button>
                 )}
               </div>
 
               {/* Answer card */}
-              <div className="mt-8 pt-5 border-t border-orange-100/60">
+              <div className="mt-8 pt-5 border-t border-[#DAE2F0]/60">
                 <div className="flex items-center justify-between mb-2.5">
                   <span className="text-xs text-stone-500 font-medium">答题卡</span>
                   <span className="text-xs text-stone-400">{answered}/{total}</span>
@@ -120,11 +120,11 @@ export default function TestPage() {
                     return done || cur ? (
                       <button key={q.id} onClick={() => setCurrentIndex(i)}
                         className={`w-6 h-6 rounded text-[10px] font-bold transition-all ${
-                          cur ? "bg-orange-400 text-white ring-2 ring-orange-200"
-                            : "bg-orange-50 text-orange-500 border border-orange-200 hover:bg-orange-100"
+                          cur ? "bg-[#92A8D1] text-white ring-2 ring-[#DAE2F0]"
+                            : "bg-[#F0D0D3] text-[#92A8D1] border border-[#EABFC3] hover:bg-[#EABFC3]"
                         }`}>{q.id}</button>
                     ) : (
-                      <span key={q.id} className="w-6 h-6 rounded text-[10px] font-medium flex items-center justify-center bg-stone-100 text-stone-400">{q.id}</span>
+                      <span key={q.id} className="w-6 h-6 rounded text-[10px] font-medium flex items-center justify-center bg-[#F5D5D8] text-stone-400">{q.id}</span>
                     );
                   })}
                 </div>
@@ -135,14 +135,14 @@ export default function TestPage() {
           {phase === "hidden1" && (
             <div className="text-center pt-4">
               <CharacterSVG size={120} className="mx-auto mb-6 float-animation" />
-              <div className="bg-orange-100 text-orange-600 text-xs font-black px-4 py-1.5 rounded-lg inline-block mb-4">🎁 彩蛋题</div>
+              <div className="bg-[#92A8D1] text-white text-xs font-black px-4 py-1.5 rounded-lg inline-block mb-4">🎁 彩蛋题</div>
               <h2 className="text-lg font-bold mb-6 text-stone-800">{hiddenQuestions[0].text}</h2>
               <div className="space-y-2.5">
                 {hiddenQuestions[0].options.map((opt, idx) => (
                   <button key={idx} onClick={() => handleHidden1(opt.value)}
                     className="option-btn w-full text-left p-3.5 rounded-2xl">
                     <div className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-black mt-0.5 bg-orange-100 text-orange-400">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-black mt-0.5 bg-[#DAE2F0] text-[#92A8D1]">
                         {String.fromCharCode(65 + idx)}
                       </span>
                       <span className="text-sm text-stone-700">{opt.label}</span>
@@ -156,14 +156,14 @@ export default function TestPage() {
           {phase === "hidden2" && (
             <div className="text-center pt-4">
               <div className="text-5xl mb-6">☕</div>
-              <div className="bg-amber-100 text-amber-700 text-xs font-black px-4 py-1.5 rounded-lg inline-block mb-4">☕ 咖啡因检测</div>
+              <div className="bg-[#F0B0B5] text-[#C87A82] text-xs font-black px-4 py-1.5 rounded-lg inline-block mb-4">☕ 咖啡因检测</div>
               <h2 className="text-lg font-bold mb-6 text-stone-800">{hiddenQuestions[1].text}</h2>
               <div className="space-y-2.5">
                 {hiddenQuestions[1].options.map((opt, idx) => (
                   <button key={idx} onClick={() => handleHidden2(opt.value)}
                     className="option-btn w-full text-left p-3.5 rounded-2xl">
                     <div className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-black mt-0.5 bg-orange-100 text-orange-400">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-black mt-0.5 bg-[#DAE2F0] text-[#92A8D1]">
                         {String.fromCharCode(65 + idx)}
                       </span>
                       <span className="text-sm text-stone-700">{opt.label}</span>
@@ -176,7 +176,7 @@ export default function TestPage() {
         </div>
       </div>
 
-      <footer className="text-center py-3 text-[10px] text-stone-300 font-mono">CBTI · 仅供娱乐</footer>
+      <footer className="text-center py-3 text-[10px] text-stone-300 font-mono">PBTI · 仅供娱乐</footer>
     </main>
   );
 }

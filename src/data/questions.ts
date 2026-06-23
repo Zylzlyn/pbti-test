@@ -7,204 +7,204 @@ export interface Question {
 
 export const questions: Question[] = [
   // ===== C1 代码洁癖度 =====
-  { id: 1, dimension: "C1", text: "你的变量命名风格？", options: [
-    { value: 1, label: "a, b, c, data2, temp_final_v3" },
-    { value: 2, label: "大部分认真命名，偶尔写个tmp忘了改" },
-    { value: 3, label: "userProfileDTO，临时变量也要见名知意" },
+  { id: 1, dimension: "C1", text: "你在 review 一个核心需求 PR，代码功能正常但变量命名混乱，你会：", options: [
+    { value: 1, label: "直接 approve，功能正确最重要" },
+    { value: 2, label: "提出命名优化建议，不强制修改" },
+    { value: 3, label: "要求必须重构后才能合并" },
   ]},
-  { id: 2, dimension: "C1", text: "AI生成的代码风格跟项目完全不一样，你会？", options: [
-    { value: 1, label: "能跑就行，要什么自行车" },
-    { value: 2, label: "格式化一下，差不多就行" },
-    { value: 3, label: "调到完全符合规范，顺便加个rules文件" },
+  { id: 2, dimension: "C1", text: "距离上线只剩2小时，发现前端代码格式混乱但无逻辑问题，你会：", options: [
+    { value: 1, label: "能跑就行，直接上线，要什么自行车" },
+    { value: 2, label: "让开发简单修一下关键文件，差不多就行" },
+    { value: 3, label: "全量 lint + format ，调到完全符合规范，顺便加个rules文件再发布" },
   ]},
 
   // ===== C2 技术债态度 =====
-  { id: 3, dimension: "C2", text: "产品说「先上，后面优化」，你心想？", options: [
-    { value: 1, label: "后面是哪辈子？行吧先糊上去" },
-    { value: 2, label: "写个TODO，虽然大概率会变成遗书" },
-    { value: 3, label: "写技术方案，排进迭代里" },
+  { id: 3, dimension: "C2", text: "产品经理要求本迭代必须上线新功能，但你知道会产生技术债，你会：", options: [
+    { value: 1, label: "先上线，技术债以后再说" },
+    { value: 2, label: "写 TODO 并记录风险" },
+    { value: 3, label: "主动推动拆分架构或延迟上线" },
   ]},
-  { id: 4, dimension: "C2", text: "你的 Git Commit Message 通常是？", options: [
-    { value: 1, label: "fix / . / asdfghjkl / 啊终于好了" },
-    { value: 2, label: "大部分写清楚，赶工时允许自己堕落" },
-    { value: 3, label: "feat/fix/chore 分清楚，附带issue编号" },
+  { id: 4, dimension: "C2", text: "你接手一个高风险模块，代码混乱但影响业务，你会：", options: [
+    { value: 1, label: "能跑就别动" },
+    { value: 2, label: "边修边记录问题" },
+    { value: 3, label: "优先重构核心架构再继续迭代" },
   ]},
 
   // ===== C3 工程素养 =====
-  { id: 5, dimension: "C3", text: "写完一个功能后？", options: [
-    { value: 1, label: "没报红 → git push → 开B站" },
-    { value: 2, label: "手动点一下主流程，没炸就提" },
-    { value: 3, label: "写单测，覆盖率不到80%不准合" },
+  { id: 5, dimension: "C3", text: "你提交代码习惯是：", options: [
+    { value: 1, label: "git commit -m ‘fix’" },
+    { value: 2, label: "基本遵守规范，偶尔简化" },
+    { value: 3, label: "严格遵循 commit / review / CI 流程" },
   ]},
-  { id: 6, dimension: "C3", text: "你的IDE此刻什么状态？", options: [
-    { value: 1, label: "47个Tab，终端跑着不知道哪年的服务" },
-    { value: 2, label: "开着几个文件，下班前大概会关" },
-    { value: 3, label: "分组管理，插件精选，配了snippets" },
+  { id: 6, dimension: "C3", text: "线上报错后你第一步会：", options: [
+    { value: 1, label: "先改代码再说" },
+    { value: 2, label: "查日志 + 判断影响面" },
+    { value: 3, label: "回滚 + 定位 + 补单测 + 复盘" },
   ]},
 
   // ===== B1 Bug归因 =====
-  { id: 7, dimension: "B1", text: "测试说你这有Bug，你内心？", options: [
-    { value: 1, label: "这不是Bug，这是Feature" },
-    { value: 2, label: "行吧让我看看" },
-    { value: 3, label: "谢谢！能给个复现步骤吗？" },
+  { id: 7, dimension: "B1", text: "发现线上问题时你倾向：", options: [
+    { value: 1, label: "是框架或环境的锅，与我无瓜" },
+    { value: 2, label: "双向排查自己和外部，行吧让我看看" },
+    { value: 3, label: "默认自己有问题直到证实不是" },
   ]},
-  { id: 8, dimension: "B1", text: "Debug两小时没找到原因？", options: [
-    { value: 1, label: "一定是环境问题 / 在我电脑上是好的！" },
-    { value: 2, label: "喝杯水换个思路" },
-    { value: 3, label: "逐个排查，打断点加日志二分定位" },
+  { id: 8, dimension: "B1", text: "Bug修复后你通常：", options: [
+    { value: 1, label: "修完就结束" },
+    { value: 2, label: "简单记录原因" },
+    { value: 3, label: "写完整 postmortem + 改流程" },
   ]},
 
   // ===== B2 抗压能力 =====
-  { id: 9, dimension: "B2", text: "周五5:59群里弹消息：线上炸了。你？", options: [
-    { value: 1, label: "假装没看到，手机静音，人已消失" },
+  { id: 9, dimension: "B2", text: "周五5:59群里弹消息：线上炸了。你会？", options: [
+    { value: 1, label: "假装没看到，手机静音，等上班再说" },
     { value: 2, label: "先看看严重不严重" },
-    { value: 3, label: "秒回「我看看」，打开监控面板" },
+    { value: 3, label: "秒回「我看看」，打开监控面板并跟进恢复" },
   ]},
-  { id: 10, dimension: "B2", text: "半夜两点手机疯狂震动，线上告警。你？", options: [
-    { value: 1, label: "手机翻过去，现在的我是一具尸体" },
-    { value: 2, label: "看看等级，P0才起来" },
-    { value: 3, label: "30秒打开电脑，拉群同步方案" },
+  { id: 10, dimension: "B2", text: "服务异常扩大时，你：", options: [
+    { value: 1, label: "有点慌" },
+    { value: 2, label: "Calm Down并协调" },
+    { value: 3, label: "拆链路逐层恢复系统" },
   ]},
 
   // ===== B3 担当意识 =====
-  { id: 11, dimension: "B3", text: "同事的代码有Bug但他已下班，你？", options: [
-    { value: 1, label: "不是我的代码不是我的锅" },
-    { value: 2, label: "紧急就帮看看，不急等他" },
-    { value: 3, label: "直接修了，提PR@他明天看" },
+  { id: 11, dimension: "B3", text: "不是你负责的系统出问题：", options: [
+    { value: 1, label: "不是我的任务=不是我的锅" },
+    { value: 2, label: "看情况，紧急就帮看看，不急就算" },
+    { value: 3, label: "主动介入排查" },
   ]},
-  { id: 12, dimension: "B3", text: "事故复盘会上，你更接近？", options: [
-    { value: 1, label: "据理力争这不全是我的责任" },
-    { value: 2, label: "承认自己那部分，客观分析" },
-    { value: 3, label: "主动写根因分析+改进方案" },
+  { id: 12, dimension: "B3", text: "多个团队互相甩锅时，你：", options: [
+    { value: 1, label: "不介入，远离是非" },
+    { value: 2, label: "协调沟通，客观分析" },
+    { value: 3, label: "主动写根因分析+改进方案+推动问题闭环" },
   ]},
 
   // ===== T1 沟通风格 =====
-  { id: 13, dimension: "T1", text: "Code Review发现同事代码写得很烂，你？", options: [
-    { value: 1, label: "LGTM 👍 内心祈祷永远别改" },
-    { value: 2, label: "委婉提个建议加个笑脸emoji" },
-    { value: 3, label: "直接列出5个问题建议重写" },
+  { id: 13, dimension: "T1", text: "你在 review 中会：", options: [
+    { value: 1, label: "‘OK’" },
+    { value: 2, label: "提一些建议顺便加个善良的emoji" },
+    { value: 3, label: "逐条 detail review 并解释原因" },
   ]},
-  { id: 14, dimension: "T1", text: "产品提了个不靠谱需求，你？", options: [
-    { value: 1, label: "好的收到～（做个差不多的交差）" },
-    { value: 2, label: "技术上有难度，换个方案？" },
-    { value: 3, label: "不行，原因如下，直接拉会" },
+  { id: 14, dimension: "T1", text: "当你不同意方案时：", options: [
+    { value: 1, label: "沉默是今晚的康桥" },
+    { value: 2, label: "委婉表达，某方面有难度，换个方案？" },
+    { value: 3, label: "不行，原因如下，直接拉会找替代方案" },
   ]},
 
   // ===== T2 协作主动性 =====
-  { id: 15, dimension: "T2", text: "你对站会的态度？", options: [
-    { value: 1, label: "能取消最好，不能就说没啥更新" },
-    { value: 2, label: "简单同步进度，15分钟内搞定" },
-    { value: 3, label: "认真准备，主动同步风险和依赖" },
+  { id: 15, dimension: "T2", text: "需求卡住时，你：", options: [
+    { value: 1, label: "等别人推进" },
+    { value: 2, label: "被动参与" },
+    { value: 3, label: "主动拆解问题推动解决" },
   ]},
-  { id: 16, dimension: "T2", text: "对方接口文档写得一团糟，你？", options: [
-    { value: 1, label: "自己看代码猜吧，问人太麻烦" },
-    { value: 2, label: "先试着对接，不行再找人" },
-    { value: 3, label: "直接找人对齐，帮他把文档重写了" },
+  { id: 16, dimension: "T2", text: "跨部门项目中你：", options: [
+    { value: 1, label: "一键跟随" },
+    { value: 2, label: "参与会议" },
+    { value: 3, label: "主导对齐机制，修改文档" },
   ]},
 
   // ===== T3 知识分享 =====
-  { id: 17, dimension: "T3", text: "实习生问你一个很基础的问题", options: [
-    { value: 1, label: "百度一下？我当年也是自学的" },
-    { value: 2, label: "简单说两句，推荐几篇文章" },
-    { value: 3, label: "拿白板从头讲起，画了40分钟" },
+  { id: 17, dimension: "T3", text: "实习生or新人问你问题，你会：", options: [
+    { value: 1, label: "哎一古自己查文档啦BB" },
+    { value: 2, label: "简单说两句，推荐几个文档和链接" },
+    { value: 3, label: "拿白板或文档从头讲起，从头带小孩" },
   ]},
-  { id: 18, dimension: "T3", text: "关于写技术博客这件事？", options: [
-    { value: 1, label: "我自己的代码都懒得写注释" },
-    { value: 2, label: "有意思的问题偶尔记一下" },
-    { value: 3, label: "持续输出，分享让我快乐又焦虑" },
+  { id: 18, dimension: "T3", text: "你在团队中：", options: [
+    { value: 1, label: "不太分享" },
+    { value: 2, label: "有意思的东西偶尔分享" },
+    { value: 3, label: "持续输出文档/培训，分享快乐又焦虑" },
   ]},
 
   // ===== D1 技术热情 =====
-  { id: 19, dimension: "D1", text: "又有新框架发布了，「颠覆性革新」", options: [
-    { value: 1, label: "又来？等活过两年再说" },
-    { value: 2, label: "先看看大家怎么评价" },
-    { value: 3, label: "第一时间clone，连夜写上手博客" },
+  { id: 19, dimension: "D1", text: "你参与开源情况：", options: [
+    { value: 1, label: "不参与，没什么意义" },
+    { value: 2, label: "偶尔，还是很有成就感的" },
+    { value: 3, label: "经常复现/贡献" },
   ]},
   { id: 20, dimension: "D1", text: "Claude/GPT/DeepSeek又发新模型了", options: [
-    { value: 1, label: "跟我有啥关系，能替我上班吗" },
-    { value: 2, label: "看看评测，好就切换" },
+    { value: 1, label: "又来？能替我上班吗" },
+    { value: 2, label: "先看看大家的体感和评测" },
     { value: 3, label: "秒申请API Key，跑benchmark写体验报告" },
   ]},
 
   // ===== D2 内卷指数 =====
   { id: 21, dimension: "D2", text: "周末你最可能在干嘛？", options: [
-    { value: 1, label: "睡觉打游戏刷视频，代码周一再说" },
-    { value: 2, label: "偶尔看看技术文章，主要休息" },
-    { value: 3, label: "写Side Project / 刷题 / 提PR" },
+    { value: 1, label: "睡觉刷视频，项目等工作日再说" },
+    { value: 2, label: "偶尔看看开源社区和技术文章，主要休息" },
+    { value: 3, label: "写PRD /主动优化 " },
   ]},
-  { id: 22, dimension: "D2", text: "Cursor/Copilot到期了公司不报销，你？", options: [
-    { value: 1, label: "到期就到期，手写也不是不行" },
-    { value: 2, label: "找找免费替代品" },
-    { value: 3, label: "秒续！求求再给我点tokens！" },
+  { id: 22, dimension: "D2", text: "面对性能问题：", options: [
+    { value: 1, label: "能用就行了" },
+    { value: 2, label: "合理优化" },
+    { value: 3, label: "追求极致地优化每个细节" },
   ]},
 
   // ===== D3 创造欲 =====
-  { id: 23, dimension: "D3", text: "一个活你已经手动做了三次", options: [
-    { value: 1, label: "第四次继续手动，写脚本更费时间" },
-    { value: 2, label: "不太复杂就写个简单脚本" },
-    { value: 3, label: "第二次就开始自动化了，顺便开源" },
+  { id: 23, dimension: "D3", text: "side project：", options: [
+    { value: 1, label: "没做过" },
+    { value: 2, label: "想做但没做" },
+    { value: 3, label: "做过挺多个的（部分烂尾）" },
   ]},
-  { id: 24, dimension: "D3", text: "不考虑工资，你会？", options: [
-    { value: 1, label: "立刻辞职，代码再见" },
-    { value: 2, label: "只做感兴趣的项目，烂活不接" },
-    { value: 3, label: "全职开源！代码就是我的命！" },
+  { id: 24, dimension: "D3", text: "你的日常belike：", options: [
+    { value: 1, label: "很少想idea" },
+    { value: 2, label: "偶尔想idea" },
+    { value: 3, label: "经常尝试实现" },
   ]},
 
   // ===== A1 AI依赖度 =====
-  { id: 25, dimension: "A1", text: "你写代码时AI工具扮演什么角色？", options: [
-    { value: 1, label: "不用，手写是程序员最后的尊严" },
+  { id: 25, dimension: "A1", text: "你写代码时，AI扮演什么角色？", options: [
+    { value: 1, label: "不用，手写古法编程才能体现基本功含金量" },
     { value: 2, label: "辅助提效，但每行都Review" },
-    { value: 3, label: "Tab Tab Accept，AI不动我不动" },
+    { value: 3, label: "Tab Tab Accept，AI不动我不动，AI动了我也不一定动" },
   ]},
-  { id: 26, dimension: "A1", text: "AI一次生成了200行代码，你？", options: [
-    { value: 1, label: "不信它，删了自己写" },
+  { id: 26, dimension: "A1", text: "AI一次生成了几百行代码，你？", options: [
+    { value: 1, label: "不信它" },
     { value: 2, label: "逐行Review，改完再用" },
     { value: 3, label: "先跑跑看，能过测试就直接用" },
   ]},
 
   // ===== A2 AI焦虑感 =====
-  { id: 27, dimension: "A2", text: "「AI即将取代程序员」你听了之后？", options: [
-    { value: 1, label: "快来替我上班！巴不得被取代" },
-    { value: 2, label: "有点焦虑，在提升不可替代性" },
-    { value: 3, label: "在学AI Agent开发了，打不过就加入" },
+  { id: 27, dimension: "A2", text: "「AI即将取代PM」你听了之后？", options: [
+    { value: 1, label: "快来替我上班！迫不及待被取代" },
+    { value: 2, label: "有点焦虑，正在提升自己的不可替代性" },
+    { value: 3, label: "在学AI Agent甚至全栈开发了，打不过就加入" },
   ]},
-  { id: 28, dimension: "A2", text: "不懂技术的产品用Cursor做了个Demo，领导很高兴", options: [
-    { value: 1, label: "好事啊，以后需求他自己做" },
-    { value: 2, label: "有点慌，但Demo和生产代码是两回事" },
-    { value: 3, label: "我得进化成AI编排师了" },
+  { id: 28, dimension: "A2", text: "面对新出现的各种AI工具，你：", options: [
+    { value: 1, label: "不用，未必有手头上那几个老工具经典实用" },
+    { value: 2, label: "逐步适应，探索新的工具和方法" },
+    { value: 3, label: "主动拥抱，尝试更新自己的工具库" },
   ]},
 
   // ===== A3 技术信仰 =====
-  { id: 29, dimension: "A3", text: "关于Vibe Coding（靠感觉让AI写代码）", options: [
-    { value: 1, label: "就是未来！理解代码是上个世纪的事" },
+  { id: 29, dimension: "A3", text: "关于Vibe Coding：", options: [
+    { value: 1, label: "未来大势，理解代码已经OUT了" },
     { value: 2, label: "原型验证可以，生产代码还得严谨" },
-    { value: 3, label: "不懂原理就是沙上盖楼，迟早塌" },
+    { value: 3, label: "不懂原理还是海市蜃楼" },
   ]},
-  { id: 30, dimension: "A3", text: "「AI时代不用学算法了」你觉得？", options: [
+  { id: 30, dimension: "A3", text: "「AI时代不用学算法了」，你觉得？", options: [
     { value: 1, label: "确实，让AI写就行" },
-    { value: 2, label: "基础要懂，但不用死记硬背了" },
-    { value: 3, label: "扯淡！不懂你连AI写的对不对都不知道" },
+    { value: 2, label: "基础还得懂，但不用死记硬背了" },
+    { value: 3, label: "NONONO，不懂算法你连AI写的对不对都不知道" },
   ]},
 ];
 
 export const hiddenQuestions = [
   {
     id: 31,
-    text: "答完啦！最后一个不计分的：你桌上现在放着啥饮料？",
+    text: "答完啦！最后一个不计分：你桌上现在放着啥饮料？",
     options: [
       { value: "water", label: "白开水" },
       { value: "tea", label: "茶" },
       { value: "coffee", label: "咖啡" },
-      { value: "cola", label: "可乐/奶茶" },
+      { value: "milktea", label: "可乐/奶茶" },
     ],
   },
   {
     id: 32,
-    text: "一天喝几杯咖啡？",
+    text: "一天喝几杯饮料（含茶、咖啡、奶茶）？",
     triggerPrev: "coffee",
     options: [
       { value: "casual", label: "一杯就够" },
-      { value: "addict", label: "三杯起步，没咖啡IDE打不开" },
+      { value: "addict", label: "三杯起步，没这些就不能开机" },
     ],
   },
 ];

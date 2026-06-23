@@ -1,0 +1,17 @@
+.text-type {
+  text-align: center;
+}
+
+.text-type__content {
+  display: inline;
+}
+
+.text-type__cursor {
+  display: inline-block;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.text-type__cursor--hidden {
+  visibility: hidden;
+}
