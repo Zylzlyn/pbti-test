@@ -161,23 +161,43 @@ export default function ResultPage() {
     setGeneratingAi(true);
     const p = result.personality;
     const siteUrl = getSiteUrl();
+    const apiKey = "sk-768348e9af184b1489cf64dd12fe2878";
+    const model = "deepseek-chat";
 
     try {
-      const res = await fetch("/api/generate-share-text", {
+      const prompt = `你是一个有趣的产品经理人格测试助手。用户测出了【${p.code} · ${p.name}】人格，格言是"${p.motto}"，匹配度${result.similarity}%。
+
+请生成一段适合分享到社交媒体的文案，要求：
+1. 保持核心信息：人格代码和名称、格言、匹配度、测试链接 ${siteUrl}
+2. 风格活泼有趣，符合产品经理群体，可以适当调侃或自嘲
+3. 100字以内
+4. 可以加emoji增加趣味性
+5. 不要用markdown格式，直接输出纯文本
+
+直接输出文案内容，不要有任何解释或额外说明。`;
+
+      const res = await fetch("https://api.deepseek.com/v1/chat/completions", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`,
+        },
         body: JSON.stringify({
-          personalityCode: p.code,
-          personalityName: p.name,
-          motto: p.motto,
-          similarity: result.similarity,
-          siteUrl,
+          model,
+          messages: [
+            { role: "system", content: "你是一个有趣的产品经理人格测试助手，擅长生成活泼有趣的社交媒体分享文案。" },
+            { role: "user", content: prompt },
+          ],
+          temperature: 0.8,
+          max_tokens: 200,
         }),
       });
 
       const data = await res.json();
-      if (data.text) {
-        setAiText(data.text);
+      const generatedText = data.choices?.[0]?.message?.content || "";
+      
+      if (generatedText) {
+        setAiText(generatedText.trim());
         setUseAiText(true);
       }
     } catch (error) {
