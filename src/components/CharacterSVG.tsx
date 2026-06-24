@@ -1,7 +1,5 @@
 "use client";
 
-<img />
-
 interface Props {
   type?: string;
   className?: string;
@@ -23,16 +21,23 @@ function resolveCode(type: string): string | null {
   return null;
 }
 
-export default function CharacterSVG({ type = "default", className = "", size = 200 }: Props) {
+// ✅ 关键：自动适配 GitHub Pages basePath
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export default function CharacterSVG({
+  type = "default",
+  className = "",
+  size = 200,
+}: Props) {
   const code = resolveCode(type) ?? "SUDO";
 
   return (
-<img
-  src={`/pbti-test/characters/${code}.png`}
-  alt={type}
-  width={size}
-  height={size}
-  className={`object-contain ${className}`}
-/>
+    <img
+      src={`${BASE}/characters/${code}.png`}
+      alt={type}
+      width={size}
+      height={size}
+      className={`object-contain ${className}`}
+    />
   );
 }
