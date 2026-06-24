@@ -1,23 +1,18 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
-
 const nextConfig: NextConfig = {
   output: "export",
-  trailingSlash: true,
+
+  distDir: "out",
+
+  basePath: "/pbti-test",
+  assetPrefix: "/pbti-test/",
 
   images: {
     unoptimized: true,
   },
 
-  basePath: isProd ? "/pbti-test" : "",
-  assetPrefix: isProd ? "/pbti-test/" : "",
-
-  distDir: "out",
-
-  typescript: {
-    ignoreBuildErrors: false,
-  },
+  trailingSlash: true,
 };
 
 export default nextConfig;
