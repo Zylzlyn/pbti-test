@@ -71,7 +71,7 @@ export default function ResultPage() {
         charImg.onload = () => resolve();
         charImg.onerror = () => reject();
         const code = p.code === "//TODO" ? "TODO" : p.code === "☕ PM Running" ? "JAVA" : p.code;
-        charImg.src = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/characters/${code}.png`;
+        charImg.src = `/pbti-test/characters/${code}.png`;
       });
       const imgH = f(300);
       const imgW = imgH * (charImg.width / charImg.height);

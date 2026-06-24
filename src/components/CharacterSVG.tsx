@@ -28,7 +28,7 @@ export default function CharacterSVG({ type = "default", className = "", size = 
 
   return (
 <Image
-src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/characters/${code}.png`}
+src={`/pbti-test/characters/${code}.png`}
   alt={type}
   width={size}
   height={size}
