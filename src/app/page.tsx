@@ -8,8 +8,9 @@ export default function Home() {
     <main className="min-h-screen relative flex flex-col items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/bg.jpg')" }}
-      />
+style={{
+  backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/bg.jpg)`
+}}      />
       <div className="grain-overlay" />
 
       <div className="relative z-10 text-center px-6 max-w-lg mx-auto">
