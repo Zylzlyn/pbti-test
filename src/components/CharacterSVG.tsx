@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+<img />
 
 interface Props {
   type?: string;
@@ -27,14 +27,12 @@ export default function CharacterSVG({ type = "default", className = "", size = 
   const code = resolveCode(type) ?? "SUDO";
 
   return (
-<Image
-src={`/pbti-test/characters/${code}.png`}
+<img
+  src={`/pbti-test/characters/${code}.png`}
   alt={type}
   width={size}
   height={size}
   className={`object-contain ${className}`}
-  style={{ width: size, height: size }}
-  priority={size >= 150}
 />
   );
 }
