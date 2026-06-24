@@ -28,7 +28,7 @@ export default function CharacterSVG({ type = "default", className = "", size = 
 
   return (
 <Image
-  src={`/pbti-test/characters/${code}.png`}
+src={`/characters/${code}.png`}
   alt={type}
   width={size}
   height={size}
