@@ -27,14 +27,14 @@ export default function CharacterSVG({ type = "default", className = "", size = 
   const code = resolveCode(type) ?? "SUDO";
 
   return (
-    <Image
-      src={`/characters/${code}.png`}
-      alt={type}
-      width={size}
-      height={size}
-      className={`object-contain ${className}`}
-      style={{ width: size, height: size }}
-      priority={size >= 150}
-    />
+<Image
+  src={`/pbti-test/characters/${code}.png`}
+  alt={type}
+  width={size}
+  height={size}
+  className={`object-contain ${className}`}
+  style={{ width: size, height: size }}
+  priority={size >= 150}
+/>
   );
 }
